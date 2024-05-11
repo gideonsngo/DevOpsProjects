@@ -9,3 +9,4 @@ If the service is running, it should show service <span style="color:green;font-
 
 Open inbound traffic through port 80 by adding the rule through the AWS interface or by running the command `sudo ufw allow 80/tcp`
 
+Test the Connection running the command: curl `http://localhost:80` or `curl http://127.0.0.1:80`
