@@ -22,6 +22,8 @@ Enable the new virtual host by running the command: `sudo a2ensite projectlamp`
 
 Disable the default apache website by running the command: `sudo a2dissite 000-default`
 
+Restart the Apache Service for changes to take effect: `sudo systemctl reload apache2`
+
 Create index.html in the new /var/www/projectlamp directory: `sudo vi /var/www/projectlamp/index.html`
 
 > [!NOTE]
