@@ -20,6 +20,7 @@ Create a new file named index.php inside the custom root folder to test: ```sudo
 Add the following PHP code to the blank file opened in VIM editor: `<?php  phpinfo ();`
 
 Open the Public IP or Public DNS of the EC2 Instance to view the content of the new index.php
+![image](https://github.com/gideonsngo/DevOpsTraining/assets/74353147/f0c69494-0635-442d-834d-245c6955ce7a)
 
 > [!NOTE]
 > PHP has now been enabled on the website.
