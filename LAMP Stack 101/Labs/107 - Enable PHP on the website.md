@@ -17,7 +17,11 @@ Reload apache for changes to take effect: ```sudo systemctl reload apache2```
 Create a new file named index.php inside the custom root folder to test: ```sudo vim /var/www/projectlamp/index.php```
 ![image](https://github.com/gideonsngo/DevOpsTraining/assets/74353147/0e067aac-62af-43bd-8f25-bd970c4c62d4)
 
-Add the following PHP code to the blank file opened in VIM editor: `<?php  phpinfo ();`
+Add the following PHP code to the blank file opened in VIM editor: ```<?php  phpinfo ();``` and view the page by visiting the public IP or public DNS in the browser
+![image](https://github.com/gideonsngo/DevOpsTraining/assets/74353147/f25b54fd-f633-4a6f-9bc2-8ba8debc1b58)
+
+Remove the index.php file leaving only the index.html by running the following command: ```sudo rm /var/www/projectlamp/index.php```  
+![image](https://github.com/gideonsngo/DevOpsTraining/assets/74353147/ff29e465-85f0-4e59-a3d8-adeed58cef6f)
 
 Open the Public IP or Public DNS of the EC2 Instance to view the content of the new index.php
 ![image](https://github.com/gideonsngo/DevOpsTraining/assets/74353147/f0c69494-0635-442d-834d-245c6955ce7a)
