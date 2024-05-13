@@ -1,5 +1,6 @@
 # 107 - Enable PHP on the website
-Apache's default DirectoryIndex settings gives a filenamed index.html more precedence over index.php but this can be changed by editing the following: `sudo vim /etc/apache2/mods-enabled/dir.conf`
+Apache's default DirectoryIndex settings gives a filenamed ```index.html``` more precedence over ```index.php``` but this can be changed by editing the following: ```sudo vim /etc/apache2/mods-enabled/dir.conf```  
+![image](https://github.com/gideonsngo/DevOpsTraining/assets/74353147/157d11bf-a418-4a6a-ae8e-b249661487af)  
 
 Implement the following changes: 
 
@@ -10,9 +11,11 @@ Implement the following changes:
     		DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
     </IfModule>
 
-Reload apache for changes to take effect: `sudo systemctl reload apache2`
+Reload apache for changes to take effect: ```sudo systemctl reload apache2```  
+![image](https://github.com/gideonsngo/DevOpsTraining/assets/74353147/49999f8e-ede5-4fa3-892c-3800377cfea8)
 
-Create a new file named index.php inside the custom root folder to test: `sudo vim /var/www/projectlamp/index.php`
+Create a new file named index.php inside the custom root folder to test: ```sudo vim /var/www/projectlamp/index.php```
+![image](https://github.com/gideonsngo/DevOpsTraining/assets/74353147/0e067aac-62af-43bd-8f25-bd970c4c62d4)
 
 Add the following PHP code to the blank file opened in VIM editor: `<?php  phpinfo ();`
 
