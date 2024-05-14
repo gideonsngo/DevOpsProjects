@@ -1,4 +1,4 @@
-# 106 Testing PHP with Nginx
+# 106 - Testing PHP with Nginx
 After successfully setting up the LEMP stack, it is important to test to validate that Nginx handles ```.php``` correctly.
 
 Create a new file called ```info.php``` within the document root in the command: ```nano /var/www/projectLEMP/info.php```   
