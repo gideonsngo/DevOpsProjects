@@ -3,7 +3,8 @@ Afte completing the functionality of the backend and API, it is time to create t
 Run the command ```npx create-react-app client``` in the Todo directory:  
 ![image](https://github.com/gideonsngo/DevOpsTraining/assets/74353147/cf74e640-afa9-4e53-be2b-8024be0db4e3)  
 
-This will run the installer and create a new folder in the directory called ```client``` where the react code will be added.  
+This will run the installer and create a new folder in the directory called ```client``` where the react code will be added. 
+**NB** If the installation gets stuck it could be as a result of the resources on the t2 micro. Upgrade to t2 small and continue installation.  
 ![image](https://github.com/gideonsngo/DevOpsTraining/assets/74353147/8f95fb72-97d6-40d5-9ce8-4ca0cccc0639)
 
 ## Running a React App
