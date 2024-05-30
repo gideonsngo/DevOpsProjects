@@ -105,7 +105,9 @@ mysql -u username -p -h server_host
 - `-h server_host`: The public IP address of the `mysql server` instance.
 ![image](https://github.com/gideonsngo/DevOpsTraining/assets/74353147/932f9dc8-6b28-4c03-ac9d-c6eb44d4047f)
 
-You should now be able to connect to the MySQL server from the MySQL client using the new user account.
+You should now be able to connect to the MySQL server from the MySQL client using the new user account.  
+> [!NOTE]
+> Kindly Note that if you run into errors connecting to the mysql-server from the client you should consider including an inbound rule to allow ICMP on the mysql-server instance.
 
 ### Step 9: Perform SQL queries to confirm connection
 Use the following command to show the databases:
