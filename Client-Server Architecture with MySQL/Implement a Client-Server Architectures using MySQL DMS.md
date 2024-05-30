@@ -103,5 +103,25 @@ mysql -u username -p -h server_host
 - `username`: The username you created.
 - `-p`: Prompts for the password.
 - `-h server_host`: The public IP address of the `mysql server` instance.
+![image](https://github.com/gideonsngo/DevOpsTraining/assets/74353147/932f9dc8-6b28-4c03-ac9d-c6eb44d4047f)
 
 You should now be able to connect to the MySQL server from the MySQL client using the new user account.
+
+### Step 9: Perform SQL queries to confirm connection
+Use the following command to show the databases:
+
+```sql
+SHOW DATABASE;
+```
+<img width="257" alt="image" src="https://github.com/gideonsngo/DevOpsTraining/assets/74353147/07bd7d6c-7ee3-4524-91f5-fe7adeff8adb">  
+
+```sql
+CREATE DATABASE testdb
+```
+![image](https://github.com/gideonsngo/DevOpsTraining/assets/74353147/fcaecf51-8dbd-451f-b62e-11f03dfc6434)  
+
+```sql
+DROP DATABASE testdb
+```
+![image](https://github.com/gideonsngo/DevOpsTraining/assets/74353147/5da4d269-17dc-4022-bfcd-20d3f37b7792)
+
