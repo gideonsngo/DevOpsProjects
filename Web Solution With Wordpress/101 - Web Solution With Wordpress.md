@@ -8,4 +8,6 @@
 
 Create two Linux RedHat EC2 instances for this project. One will be used as a Webserver for WordPress, while the other one will be used as the Database server.
 
-![image](https://github.com/gideonsngo/DevOpsTraining/assets/74353147/9a6d0ddc-9b1e-4b73-ac2f-56dee07e0c33)
+![image](https://github.com/gideonsngo/DevOpsTraining/assets/74353147/9a6d0ddc-9b1e-4b73-ac2f-56dee07e0c33)  
+
+**Note:** For Ubuntu server, when connecting to it via SSH/Putty we used ```ubuntu``` user, but for RedHat you will need to use ```ec2-user``` user. Connection string will look like ```ec2-user@<Public-IP>```
