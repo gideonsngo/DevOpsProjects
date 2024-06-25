@@ -104,4 +104,5 @@ Test the configuration and reload the daemon
       sudo systemctl daemon-reload
       ```
 Verify your setup by running `df -h` output must look like this:
+
 ![image](https://github.com/gideonsngo/DevOpsTraining/assets/74353147/8827d585-4aa4-4077-bc78-03816b7446c8)
