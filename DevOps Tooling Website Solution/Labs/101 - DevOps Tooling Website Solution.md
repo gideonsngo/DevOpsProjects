@@ -10,4 +10,6 @@ In this project you will implement a solution that consists of following compone
 5. **Programming Language:** PHP
 6. **Code Repository:** GitHub
 
+As a member of the DevOps team, you will implement a tooling website solution that provides easy access to DevOps tools within the corporate infrastructure. This project involves setting up an infrastructure consisting of the above components using the below architecture.
+
 ![image](https://github.com/gideonsngo/DevOpsTraining/assets/74353147/9dc33f77-a218-401b-ba93-7aff5833e295)
