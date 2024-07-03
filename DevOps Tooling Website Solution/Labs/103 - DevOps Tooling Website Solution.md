@@ -42,6 +42,16 @@
         <img width="440" alt="image" src="https://github.com/gideonsngo/DevOpsTraining/assets/74353147/24d0516f-5f3c-4cc4-9011-4f756e99d05c">
 
 ## Step 3: Prepare the Web Servers
+We need to make sure that our Web Servers can serve the same content from shared storage solutions, in our case - NFS Server and MySQL database. You already know that one DB can be accessed for reads and writes by multiple clients. For storing shared files that our Web Servers will use - we will utilize NFS and mount previously created Logical Volume lv-apps to the folder where Apache stores files to be served to the users (/var/www).
+
+This approach will make our Web Servers stateless, which means we will be able to add new ones or remove them whenever we need, and the integrity of the data (in the database and on NFS) will be preserved.
+
+During the next steps we will do following:
+
+- Configure NFS client (this step must be done on all three servers)
+- Deploy a Tooling application to our Web Servers into a shared NFS folder
+- Configure the Web Servers to work with a single MySQL database
+
 - **SSH into the instance**
   
     ```
@@ -58,7 +68,7 @@
    - Mount NFS Web shares `/var/www`:
      ```sh
      sudo mkdir -p /var/www
-     sudo mount -t nfs -o rw,nosuid 172.31.16.182:/mnt/apps /var/www
+     sudo mount -t nfs -o rw,nosuid <NFS-Server-Private-IP-Address>:/mnt/apps /var/www
      ```
    - Add the following lines to `/etc/fstab` to ensure mounts persist after reboot:
      ```sh
@@ -66,16 +76,16 @@
      ```
      Add:
      ```
-     172.31.16.182:/mnt/apps /var/www nfs defaults 0 0
+     <NFS-Server-Private-IP-Address>:/mnt/apps /var/www nfs defaults 0 0
      ```
-     ![Mount Web Point](./images/mount-nfs-share-webserver.PNG)
+     <img width="445" alt="image" src="https://github.com/gideonsngo/DevOpsTraining/assets/74353147/a9e4651f-635e-44f2-a399-c395d3db9586">
 
 - **Install Apache and PHP**:
    - Install Remi's repository, Apache, and PHP:
      ```sh
      sudo yum install httpd -y
-     sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm -y
-     sudo dnf install dnf-utils http://rpms.remirepo.net/enterprise/remi-release-9.rpm -y
+     sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm -y
+     sudo dnf install dnf-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm -y
      sudo dnf module reset php -y
      sudo dnf module enable php:remi-7.4 -y
      sudo dnf install php php-opcache php-gd php-curl php-mysqlnd -y
@@ -101,11 +111,11 @@
      ```
      <NFS-Server-private-ip>:/mnt/logs /var/log/httpd nfs defaults 0 0
      ```
-     ![Mount Logs Point](./images/1.PNG)
-
+     <img width="351" alt="image" src="https://github.com/gideonsngo/DevOpsTraining/assets/74353147/0aef6293-a919-44d4-9a98-c2021a1a0e44">
+     
 - **Deploy Tooling Application**:
-   - Fork the tooling source code from `Darey.io GitHub` account to your GitHub account.
-    ![Forked Repository](./images/forked-repo.PNG)
+   - Fork the tooling source code from `Steghub GitHub` account to your GitHub account.
+    ![image](https://github.com/gideonsngo/DevOpsTraining/assets/74353147/cc4796bb-6e7f-4ca0-abc6-0dd33145300b)
    
    - Then `clone` the source code repository to the Web server.
         ```sh
@@ -122,9 +132,10 @@
    - Verify that Apache files and directories are available on the web server in `/var/www` and also on the NFS server `/mnt/apps`.
 
    - If you see the same files, it means NFS is mounted correctly. Create a new file `touch test.txt` from one server and check if it is accessible from other web servers.
-    ![Create Test.txt](./images/testing-txt-file-1.PNG)
+    <img width="340" alt="image" src="https://github.com/gideonsngo/DevOpsTraining/assets/74353147/64103b6f-d412-48e8-8ace-d02b67412bba">
+
     - Verify the NFS Mounted Correctly
-    ![Verify Test.txt](./images/testing-txt-file-2.PNG)
+    <img width="394" alt="image" src="https://github.com/gideonsngo/DevOpsTraining/assets/74353147/f6ba8a19-c5d7-4596-9c82-d3d1cef54ad0">
 
 - **Configure Database Connection for the Website**:
    - Update the website's configuration to connect to the database (in `/var/www/html/functions.php` file).
@@ -143,8 +154,8 @@
       mysql -h <database-private-ip> -u <db-username> -p <db-name> < tooling-db.sql
       ```
    - Database Security Group:
-    ![DB SG](./images/DB-sg.PNG)
-
+  <img width="680" alt="image" src="https://github.com/gideonsngo/DevOpsTraining/assets/74353147/0e989cb1-07c5-4844-9f7c-cef1281e5eec">
+  
 - **Create Admin User in MySQL**:
    - First, we access the Database remotely from the web server with `webaccess` user credentials.
      ```sh
@@ -156,10 +167,10 @@
      INSERT INTO users (id, username, password, email, user_type, status) VALUES (2, 'myuser', '5f4dcc3b5aa765d61d8327deb882cf99', 'user@mail.com', 'admin', '1');
      EXIT
      ```
+     <img width="444" alt="image" src="https://github.com/gideonsngo/DevOpsTraining/assets/74353147/ad811f6a-6ca5-4eb3-8d8b-647cb6d70a3c">
 
 - **Open Port 80 & Required Ports**:
    - Ensure TCP port 80 is open on the web server to allow HTTP traffic.
-    ![Web SG](./images/web-sg.PNG)
 
 - **If Encountering 403 Errors & Apache Fails to Restart**:
   - Then you will need to allow apache to use NFS mounted directories with SElinux enabled
@@ -175,7 +186,6 @@
      ```sh
      sudo systemctl restart httpd
      ```
-     ![Restartin Apache](./images/setsebool-httpd-nfs.PNG)
 
   - To disbale selinux and make the change permanent, open selinux file and set selinux to disable.
      ```sh
@@ -187,6 +197,8 @@
 
      sudo systemctl restart httpd
      ```
+     ![image](https://github.com/gideonsngo/DevOpsTraining/assets/74353147/f322112d-b0ca-4a0b-8e94-910a9ecf4f84)
+
 
 - **Access the Website**:
    - Open a browser and navigate to `http://<web-server-public-ip>/index.php`.
