@@ -142,7 +142,7 @@ During the next steps we will do following:
         ```sh
         sudo vi /var/www/html/functions.php
         ```
-      - Add the `db-private-ip` as `host`, also include `username`, `password` and `db-name` into the file.
+      - Add the `db-private-ip` as `host`, also include `username`, `password` and `db_name` into the file.
 
    - Apply the `tooling-db.sql` script to your database:
      - Fist make sure MySQL client is installed on the Web servers.
@@ -202,10 +202,10 @@ During the next steps we will do following:
 
 - **Access the Website**:
    - Open a browser and navigate to `http://<web-server-public-ip>/index.php`.
-    ![Tooling Web Page](./images/accessing-on-the%20website-index-php.PNG)
+     ![image](https://github.com/gideonsngo/DevOpsTraining/assets/74353147/3081cf6f-cea8-4bda-9816-d2e99de4407d)
 
    - Log in with the `myuser` user.
-    ![Login Page](./images/accessing-on-the%20website-index-php-2.PNG)
+    
 
 ### Conclusion
 Congratulations! You have successfully implemented a web solution for a DevOps team using a LAMP stack with remote database and NFS servers.
