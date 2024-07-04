@@ -143,6 +143,8 @@ During the next steps we will do following:
         sudo vi /var/www/html/functions.php
         ```
       - Add the `db-private-ip` as `host`, also include `username`, `password` and `db_name` into the file.
+        <img width="498" alt="image" src="https://github.com/gideonsngo/DevOpsTraining/assets/74353147/e99e7ad2-3992-4a51-a439-3f6fba6292ce">
+
 
    - Apply the `tooling-db.sql` script to your database:
      - Fist make sure MySQL client is installed on the Web servers.
@@ -205,7 +207,8 @@ During the next steps we will do following:
      ![image](https://github.com/gideonsngo/DevOpsTraining/assets/74353147/3081cf6f-cea8-4bda-9816-d2e99de4407d)
 
    - Log in with the `myuser` user.
-    
+    ![image](https://github.com/gideonsngo/DevOpsTraining/assets/74353147/e13c5bcb-3626-42f3-a3a6-3fb453eb6361)
+
 
 ### Conclusion
 Congratulations! You have successfully implemented a web solution for a DevOps team using a LAMP stack with remote database and NFS servers.
