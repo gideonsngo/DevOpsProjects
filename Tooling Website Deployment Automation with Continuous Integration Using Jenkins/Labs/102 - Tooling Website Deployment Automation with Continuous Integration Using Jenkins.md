@@ -2,9 +2,9 @@
 
 ## Overview
 
-![Architectural Diagram](./images/Architecture-Diagram.PNG)
+<img width="542" alt="image" src="https://github.com/gideonsngo/DevOpsTraining/assets/74353147/d9f174b3-73c6-47f5-a9c6-6accbbe40cc9">
 
-This guide will walk you through setting up a Jenkins server for continuous integration and deployment, automating the deployment of source code changes from GitHub to an NFS server. A continuation of the Tooling Website Solution from [Project 7](../DevOps-Tooling-Website-Solution/) & [Project 8](../Load-Balancer-Solution-With-Apache/).
+This guide will walk you through setting up a Jenkins server for continuous integration and deployment, automating the deployment of source code changes from GitHub to an NFS server. A continuation of the Tooling Website Solution from [Project 7](../DevOps Tooling Website Solution/) & [Project 8](../Load-Balancer Solution With Apache/).
 
 ---
 
@@ -22,6 +22,8 @@ Before starting, ensure you have the following:
 - **Create an AWS EC2 instance**
    - Launch an EC2 instance using Ubuntu Server 24.02 LTS AMI and name it `Jenkins`.
    - Ensure the security group allows inbound TCP traffic on port 8080.
+   <img width="735" alt="image" src="https://github.com/gideonsngo/DevOpsTraining/assets/74353147/b0af7e9a-b3ca-4b2a-9210-331c3c7e1648">
+   <img width="724" alt="image" src="https://github.com/gideonsngo/DevOpsTraining/assets/74353147/02140bb9-c2a0-4c53-9e7c-74f315b70ebf">
 
 - **Update the system, Install JDK and Verify JDK**
     ```sh
@@ -29,7 +31,7 @@ Before starting, ensure you have the following:
     sudo apt install openjdk-11-jdk -y
     java -version
     ```
-    ![Java Version](./images/java-version.PNG)
+    <img width="459" alt="image" src="https://github.com/gideonsngo/DevOpsTraining/assets/74353147/3ff4c717-e114-4958-a172-3be3b3c6da17">
 
 - **Install Jenkins**
    ```bash
@@ -37,13 +39,13 @@ Before starting, ensure you have the following:
     sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 5BA31D57EF5975CA
     ```
-    ![Add Jenkins GPG Keys](./images/add-jenkins-repo-gpg-keys.PNG)
-
+   <img width="473" alt="image" src="https://github.com/gideonsngo/DevOpsTraining/assets/74353147/12944169-b945-49bb-a67f-45bfc51bdad8">
+   
     ```bash
     sudo apt update
     sudo apt install jenkins -y
     ```
-    ![Package Manager Update](./images/sudo-apt-update.PNG)
+   <img width="353" alt="image" src="https://github.com/gideonsngo/DevOpsTraining/assets/74353147/d8bb0525-6c4d-4e8e-8ea0-50f00ac06a7e">
 
 - **Start Jenkins service and verify its status**
     ```bash
@@ -51,17 +53,12 @@ Before starting, ensure you have the following:
     sudo systemctl enable jenkins
     sudo systemctl status jenkins
     ```
-    ![Jenkins Service Status](./images/jenkins-service-status.PNG)
-
-- **Open port 8080**
-
-  - Modify the security group to add a new inbound rule allowing TCP traffic on port 8080.
-   ![Jenkins Security Group](./images/jenkins-sg.PNG)
+   <img width="518" alt="image" src="https://github.com/gideonsngo/DevOpsTraining/assets/74353147/4c4098e0-52b0-4164-9486-8da241513293">
 
 - **Perform initial Jenkins setup**
 
   - Access Jenkins through your browser using `http://<jenkins-server-public-ip>:8080`.
-   ![Jenkins Admin Password](./images/admin-password-jenkins.PNG)
+  <img width="848" alt="image" src="https://github.com/gideonsngo/DevOpsTraining/assets/74353147/6c852fe5-6395-45dc-bfd0-cdf5020b444d">
   
   - Retrieve the initial admin password from the Jenkins server:
     ```sh
@@ -69,11 +66,10 @@ Before starting, ensure you have the following:
     ```
 
   - Follow the setup wizard and install the suggested plugins.
-   ![Install Plugins](./images/customize-jenkins.PNG)
+   <img width="833" alt="image" src="https://github.com/gideonsngo/DevOpsTraining/assets/74353147/94254e9a-66a8-4333-8f97-6b5ce34af597">
 
     - Create Jenkins First Console User:
-     ![Create User](./images/jenkins-create-new-user.PNG)
 
     - Jenkins Set-Up Completed:
-     ![Jenkins Ready](./images/jenkins-ready.PNG)  
+     <img width="832" alt="image" src="https://github.com/gideonsngo/DevOpsTraining/assets/74353147/166871a0-f7f0-4368-a7a5-64f09191e62a">
 
