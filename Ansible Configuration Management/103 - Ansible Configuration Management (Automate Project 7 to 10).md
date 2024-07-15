@@ -45,11 +45,6 @@
 
   <img width="805" alt="image" src="https://github.com/user-attachments/assets/45c46beb-7426-4bc8-af82-3bddf694829b">
 
-- **Create the `ansible.cfg` file:**
-    ```sh
-    nano ansible.cfg
-    ```
-
   - Add the following configuration:
     ```ini
     [defaults]
