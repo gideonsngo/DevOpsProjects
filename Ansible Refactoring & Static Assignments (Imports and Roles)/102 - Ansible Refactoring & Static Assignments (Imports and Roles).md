@@ -57,7 +57,7 @@ In this project, you will continue working with the `ansible-config-mgt` reposit
     - Set `ansible` as the source project.
     
     - Set `/home/ubuntu/ansible-config-artifact` as the target directory.
-    <img width="885" alt="image" src="https://github.com/user-attachments/assets/86fdb0ce-6cce-46e0-b813-75da6a4cdd99">
+<img width="885" alt="image" src="https://github.com/user-attachments/assets/86fdb0ce-6cce-46e0-b813-75da6a4cdd99">
 
 ### Test the Setup
 - **Make a change in the `README.md` file in the `main` branch of the `ansible-config-mgt` repository.**
@@ -68,7 +68,7 @@ In this project, you will continue working with the `ansible-config-mgt` reposit
     cd /home/ubuntu/ansible-config-artifact
     ls
     ```
-    ![Verify Job Run](./images/verify-jenkins-job-copy-files.PNG)
+    <img width="440" alt="image" src="https://github.com/user-attachments/assets/1039a868-6304-4105-917a-954ba4321f78">
 
 ---
 
@@ -82,7 +82,7 @@ In this project, you will continue working with the `ansible-config-mgt` reposit
     ```sh
     git checkout -b refactor
     ```
-    ![Create Branch](./images/create-new-branch-refactor.PNG)
+    <img width="437" alt="image" src="https://github.com/user-attachments/assets/50217e11-7705-4845-be6c-88b3c3b21f13">
 
 ### Create the `site.yml` File
 - **Within the `playbooks` folder, create a new file named `site.yml` and add the code below into the file:**
@@ -112,7 +112,7 @@ In this project, you will continue working with the `ansible-config-mgt` reposit
 	└── playbooks
     		└── site.yml
 ```
-![Folder Structure](./images/folder-structure-01.PNG)
+<img width="391" alt="image" src="https://github.com/user-attachments/assets/0d0d0603-71ce-40b1-819e-76274914d03c">
 
 
 ### Create `common-del.yml` Playbook
@@ -167,15 +167,14 @@ In this project, you will continue working with the `ansible-config-mgt` reposit
     cd /home/ubuntu/ansible-config-mgt/
     ansible-playbook -i inventory/dev.yml playbooks/site.yml
     ```
-    ![Uninstall Wireshark](./images/wireshark-uninstalled.PNG)
+    <img width="320" alt="image" src="https://github.com/user-attachments/assets/7509017c-bb04-4dc2-b606-6ca94180507d">
 
 - Ensure `wireshark` is deleted by running `wireshark --version` on the servers.
   
   - Output Webserver:
-   ![Wireshark1](./images/nfs-uninstalled-wireshark.PNG)
+   <img width="383" alt="image" src="https://github.com/user-attachments/assets/407eae0b-7a73-4e71-9aa8-e8fc5e5d986f">
 
   - Output LBserver:
-   ![Wireshark2](./images/db-uninstalled-wireshark.PNG)
-  
+   ![image](https://github.com/user-attachments/assets/dc590774-901e-4c75-82fa-9018251e42a2)
 
 ---
