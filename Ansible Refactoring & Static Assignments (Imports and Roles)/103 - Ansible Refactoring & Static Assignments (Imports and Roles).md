@@ -32,10 +32,8 @@
         │   └── main.yml
         └── templates
     ```
-    ![Role Directory](./images/role-folder-structure.PNG)
-
     - Final Folder Structure:
-     ![Structure](./images/final-folder-structure.PNG)
+     <img width="359" alt="image" src="https://github.com/user-attachments/assets/47fec8ea-cf28-4946-b479-7b6a0cb3ea1c">
 
 ### Update UAT Inventory
 - **Update the `ansible-config-mgt/inventory/uat.yml` with the IP addresses of the UAT servers:**
